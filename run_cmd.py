@@ -102,7 +102,7 @@ class ExecuteCommands():
 
 
     def run(self):
-        self.backhome()
+        self.back_home()
         self.refresh_angle()
         self.to_position()
         self.explode()
