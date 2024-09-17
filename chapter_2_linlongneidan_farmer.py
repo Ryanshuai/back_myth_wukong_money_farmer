@@ -19,7 +19,7 @@ class ExecuteCommands():
         self.keyboard.press(pynput.keyboard.Key.shift)
         self.keyboard.press("w")
         self.keyboard.press("a")
-        time.sleep(1.5)
+        time.sleep(1.4)
         self.keyboard.release("a")
         self.keyboard.release("w")
         self.keyboard.release(pynput.keyboard.Key.shift)
@@ -40,6 +40,7 @@ class ExecuteCommands():
         time.sleep(1.5)
         self.keyboard.release("w")
         self.keyboard.release(pynput.keyboard.Key.shift)
+        time.sleep(0.5)
 
     def refresh_angle(self):
         print("refresh angle")
