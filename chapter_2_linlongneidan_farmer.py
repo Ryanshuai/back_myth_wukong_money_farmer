@@ -14,12 +14,12 @@ class ExecuteCommands():
 
     def to_position(self):
         print("to position")
-        # win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(-1000 * 22), int(0))
+        win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(-1000 * 8), int(0))
 
         self.keyboard.press(pynput.keyboard.Key.shift)
         self.keyboard.press("w")
         self.keyboard.press("a")
-        time.sleep(1.4)
+        time.sleep(0.8)
         self.keyboard.release("a")
         self.keyboard.release("w")
         self.keyboard.release(pynput.keyboard.Key.shift)
@@ -37,7 +37,7 @@ class ExecuteCommands():
         win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(1000 * 65), int(0))
         self.keyboard.press(pynput.keyboard.Key.shift)
         self.keyboard.press("w")
-        time.sleep(1.5)
+        time.sleep(1)
         self.keyboard.release("w")
         self.keyboard.release(pynput.keyboard.Key.shift)
         time.sleep(0.5)
@@ -49,7 +49,7 @@ class ExecuteCommands():
 
         self.mouse.position = (tiaoxi_pos[0], tiaoxi_pos[1])
 
-        time.sleep(3)
+        time.sleep(4)
         self.keyboard.press(pynput.keyboard.Key.enter)
         time.sleep(0.1)
         self.keyboard.release(pynput.keyboard.Key.enter)
