@@ -12,25 +12,16 @@ class ExecuteCommands():
         self.mouse = pynput.mouse.Controller()
         self.keyboard = pynput.keyboard.Controller()
 
-    def to_position(self):
-        print("to position")
-        win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(-1000 * 8), int(0))
-
+    def forward(self, duration):
+        print("forward")
         self.keyboard.press(pynput.keyboard.Key.shift)
         self.keyboard.press("w")
-        self.keyboard.press("a")
-        time.sleep(0.8)
-        self.keyboard.release("a")
+        time.sleep(duration)
         self.keyboard.release("w")
         self.keyboard.release(pynput.keyboard.Key.shift)
 
-    def arrow(self):
-        print("arrow")
-        time.sleep(0.1)
-        self.keyboard.tap("1")
-        time.sleep(1)
-        self.keyboard.tap("f")
-        time.sleep(4)
+    def turn(self, degree):
+        win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, int(500 * degree), int(0))
 
     def back_home(self):
         print("back_home")
@@ -62,9 +53,27 @@ class ExecuteCommands():
 
     def run(self):
         self.refresh_angle()
-        self.to_position()
-        self.arrow()
-        self.back_home()
+        self.turn(-10)
+        time.sleep(0.2)
+        self.keyboard.tap("1")
+        time.sleep(0.5)
+        self.mouse.click(pynput.mouse.Button.middle)
+        time.sleep(0.2)
+        self.turn(-7)
+        time.sleep(0.2)
+        self.forward(3.5)
+        self.turn(50)
+        self.forward(1)
+        self.keyboard.tap("f")
+        time.sleep(2)
+        self.turn(80)
+        time.sleep(0.1)
+        self.forward(5)
+        time.sleep(0.2)
+        self.turn(-70)
+        time.sleep(0.2)
+        self.forward(0.7)
+        time.sleep(0.2)
 
 
 if __name__ == "__main__":
@@ -72,3 +81,4 @@ if __name__ == "__main__":
     exe = ExecuteCommands()
     while True:
         exe.run()
+        # break
